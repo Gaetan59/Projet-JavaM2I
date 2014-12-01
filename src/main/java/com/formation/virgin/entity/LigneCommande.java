@@ -13,7 +13,7 @@ public class LigneCommande {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@ManyToOne
-	private Article article;
+	private String article;
 
 	private Integer quantite;
 	@ManyToOne
@@ -23,7 +23,7 @@ public class LigneCommande {
 		super();
 	}
 
-	public LigneCommande(Article article, Integer quantite) {
+	public LigneCommande(String article, Integer quantite) {
 		super();
 		this.article = article;
 		this.quantite = quantite;
@@ -37,11 +37,11 @@ public class LigneCommande {
 		this.id = id;
 	}
 
-	public Article getArticle() {
+	public String getArticle() {
 		return article;
 	}
 
-	public void setArticle(Article article) {
+	public void setArticle(String article) {
 		this.article = article;
 	}
 

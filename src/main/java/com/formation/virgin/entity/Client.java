@@ -98,5 +98,4 @@ public class Client {
 	public void setListeCommande(final List<Commande> listeCommande) {
 		this.listeCommande = listeCommande;
 	}
-	//
 }
