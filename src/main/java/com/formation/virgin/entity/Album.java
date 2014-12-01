@@ -19,7 +19,6 @@ public class Album extends Article {
 	private String titre;
 	private Date annee;
 	
-	
 	public Album() {
 		super();
 	
