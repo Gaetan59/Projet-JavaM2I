@@ -3,7 +3,7 @@ package com.formation.virgin.entity;
 import javax.persistence.Entity;
 
 @Entity
-public class Prixsupport {
+public class PrixSupport {
 
 	private double prix;
 
@@ -22,12 +22,12 @@ public class Prixsupport {
 		this.prix = prix;
 	}
 
-	public Prixsupport(double prix) {
+	public PrixSupport(double prix) {
 		super();
 		this.prix = prix;
 	}
 
-	public Prixsupport() {
+	public PrixSupport() {
 
 	}
 }
