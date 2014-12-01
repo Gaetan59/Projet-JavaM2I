@@ -19,7 +19,7 @@ public class Client {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String nom;
 	private String prenom;
 	private Date naissance;
@@ -27,7 +27,7 @@ public class Client {
 	private String email;
 	@OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true, mappedBy = "client")
 	@LazyCollection(LazyCollectionOption.FALSE)
-	private final List<Commande> listeCommande = new ArrayList<Commande>();
+	private List<Commande> listeCommande = new ArrayList<Commande>();
 
 	public Client(final int id, final String nom, final String prenom,
 			final Date naissance, final String adresse, final String email) {
@@ -43,7 +43,7 @@ public class Client {
 		super();
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
