@@ -1,6 +1,5 @@
 package com.formation.virgin.entity;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,20 +14,16 @@ public class Article {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer Id;
 
+	private List<Artiste> ListeArtiste = new ArrayList<Artiste>();
 
-	private List<Artiste>ListeArtiste=new Arraylist<Artiste>();
-
-
-
-	public Article(){
+	public Article() {
 
 	}
 
-	public Article(List<Artiste> listeArtiste) {
+	public Article(final List<Artiste> listeArtiste) {
 		super();
 		ListeArtiste = listeArtiste;
 	}
-
 
 	/**
 	 * @return the listeArtiste
@@ -37,11 +32,12 @@ public class Article {
 		return ListeArtiste;
 	}
 
-
 	/**
-	 * @param listeArtiste the listeArtiste to set
+	 * @param listeArtiste
+	 *            the listeArtiste to set
 	 */
-	public void setListeArtiste(List<Artiste> listeArtiste) {
+	public void setListeArtiste(final List<Artiste> listeArtiste) {
 		ListeArtiste = listeArtiste;
 	}
 
+}
