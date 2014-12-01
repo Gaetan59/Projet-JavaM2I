@@ -1,5 +1,7 @@
 package com.formation.virgin.dao;
 
-public class ClientDAO {
+import com.formation.virgin.entity.Client;
+
+public interface ClientDAO extends DAO<Client> {
 
 }
