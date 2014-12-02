@@ -10,46 +10,50 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Album extends Article {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@ManyToOne
 	private String titre;
 	private Date annee;
-	
+
 	public Album() {
 		super();
-	
+
 	}
-	
+
 	public Album(final String titre, final Date annee) {
 		super();
 		this.titre = titre;
 		this.annee = annee;
 	}
-	
+
 	public Date getAnnee() {
 		return annee;
 	}
+
+	@Override
 	public Integer getId() {
 		return id;
 	}
+
 	public String getTitre() {
 		return titre;
 	}
+
 	public void setAnnee(final Date annee) {
 		this.annee = annee;
 	}
+
+	@Override
 	public void setId(final Integer id) {
 		this.id = id;
 	}
+
 	public void setTitre(final String titre) {
 		this.titre = titre;
 	}
-	
-	
-	
 
 }

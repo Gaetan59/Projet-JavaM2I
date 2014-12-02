@@ -47,4 +47,5 @@ public interface DAO<T> {
 	 *             the SQL exception
 	 */
 	public abstract T find(Integer id) throws SQLException;
+
 }
