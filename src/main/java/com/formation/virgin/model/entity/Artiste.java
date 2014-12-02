@@ -18,7 +18,7 @@ public class Artiste {
 	private final List<Album> listeAlbum = new ArrayList<Album>();
 	private final List<Titre> listeTitre = new ArrayList<Titre>();
 
-	public Artiste(final int id, final String nom) {
+	public Artiste(final String nom) {
 		super();
 		this.nom = nom;
 	}
