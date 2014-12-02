@@ -25,6 +25,7 @@ public class Client {
 	private Date naissance;
 	private String adresse;
 	private String email;
+
 	@OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true, mappedBy = "client")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Commande> listeCommande = new ArrayList<Commande>();
@@ -95,7 +96,12 @@ public class Client {
 		return listeCommande;
 	}
 
+	public List<Commande> getCommande() {
+		return listeCommande;
+	}
+
 	public void setListeCommande(final List<Commande> listeCommande) {
 		this.listeCommande = listeCommande;
 	}
+
 }

@@ -1,10 +1,12 @@
 package com.formation.virgin.model.manager;
 
+import java.util.List;
+
 import com.formation.virgin.model.entity.Article;
 import com.formation.virgin.model.entity.Client;
 import com.formation.virgin.model.entity.Commande;
 
-public class MagasinManager {
+public interface MagasinManager {
 
 	public Boolean addArticle(Article article);
 
@@ -23,4 +25,5 @@ public class MagasinManager {
 	public void updateClient(Client client);
 
 	void removeClient(Integer clientId);
+
 }
