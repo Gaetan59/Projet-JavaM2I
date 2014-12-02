@@ -11,6 +11,7 @@ public class ClientDAOImplJPATest {
 	public void setUp() throws Exception {
 	}
 
+	
 	@Test
 	public void TestCreate() {
 		fail("Not yet implemented");
