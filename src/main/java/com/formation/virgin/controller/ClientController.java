@@ -30,24 +30,24 @@ public class ClientController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String printClient(ModelMap model) {
+	public String printClient(final ModelMap model) {
 		init();
-		List<Client> list = magasinManager.getClient();
+		final List<Client> list = magasinManager.getClients();
 		model.addAttribute("clients", list);
 		return "client";
 
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String ajouterClients(ModelMap model) {
+	public String ajouterClients(final ModelMap model) {
 
 		model.addAttribute("client", new Client());
 		return "addClient";
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String handleForm(@ModelAttribute("client") Client client,
-			ModelMap model) {
+	public String handleForm(@ModelAttribute("client") final Client client,
+			final ModelMap model) {
 		init();
 
 		if (client != null && client.getNom() != null
@@ -62,10 +62,10 @@ public class ClientController {
 	}
 
 	@RequestMapping(value = "/modif/{clientId}", method = RequestMethod.GET)
-	public String editClient(@PathVariable("clientId") Integer clientId,
-			ModelMap model) throws SQLException {
+	public String editClient(@PathVariable("clientId") final Integer clientId,
+			final ModelMap model) throws SQLException {
 		init();
-		Client client = magasinManager.getClient(clientId);
+		final Client client = magasinManager.getClient(clientId);
 		model.addAttribute("client", client);
 		return "modif";
 	}
@@ -73,7 +73,8 @@ public class ClientController {
 	@RequestMapping(value = "/modif/{clientId}", method = RequestMethod.POST)
 	public String editClientReponse(
 			@ModelAttribute("client") final Client client,
-			@PathVariable("clientId") final Integer clientId, ModelMap model) {
+			@PathVariable("clientId") final Integer clientId,
+			final ModelMap model) {
 		init();
 
 		if (client != null && client.getNom() != null
@@ -89,10 +90,11 @@ public class ClientController {
 	}
 
 	@RequestMapping(value = "/delete/{clientId}", method = RequestMethod.GET)
-	public String SuppClientReponse(@PathVariable("clientId") Integer clientId,
-			ModelMap model) throws SQLException {
+	public String SuppClientReponse(
+			@PathVariable("clientId") final Integer clientId,
+			final ModelMap model) throws SQLException {
 		init();
-		Client client = magasinManager.getClient(clientId);
+		final Client client = magasinManager.getClient(clientId);
 
 		if (client != null && client.getNom() != null
 				&& !client.getNom().isEmpty() && client.getPrenom() != null

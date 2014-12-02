@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.formation.virgin.model.entity.Article;
 import com.formation.virgin.model.manager.MagasinManager;
 
-
 @Controller
 @RequestMapping("/article")
 public class ArticleController {

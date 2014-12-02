@@ -28,4 +28,6 @@ public interface MagasinManager {
 
 	public MagasinManager getBean(String string);
 
+	public List<Article> getArticles();
+
 }
