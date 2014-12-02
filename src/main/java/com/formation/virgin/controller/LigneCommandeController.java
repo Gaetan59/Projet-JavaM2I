@@ -1,6 +1,6 @@
 package com.formation.virgin.controller;
 
-import java.sql.SQLException;
+
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -15,8 +15,6 @@ import com.formation.virgin.model.entity.Client;
 import com.formation.virgin.model.entity.Commande;
 import com.formation.virgin.model.manager.MagasinManager;
 
-
-
 public class LigneCommandeController {
 
 	@Controller
@@ -24,16 +22,17 @@ public class LigneCommandeController {
 	public class LigneCommandeControler {
 
 		@RequestMapping(value = "/{clientId}/{commandeId}", method = RequestMethod.GET)
-		public String printCommande(@PathVariable("clientId") Integer clientId,
-				@PathVariable("commandeId") Integer commandeId, ModelMap model) {
+		public String printCommande(
+				@PathVariable("clientId") final Integer clientId,
+				@PathVariable("commandeId") final Integer commandeId,
+				final ModelMap model) {
 			final ApplicationContext ctx = new ClassPathXmlApplicationContext(
 					"spring.xml");
 
-			final MagasinManager magasinManager = MagasinManager
+			final MagasinManager magasinManager = (MagasinManager) ctx
 					.getBean("magasinManagerImpl");
 
 			Client client;
-			try {
 				client = magasinManager.getClient(clientId);
 				final List<Commande> listCommande = client.getCommande();
 				for (final Commande commande : listCommande) {
@@ -44,10 +43,6 @@ public class LigneCommandeController {
 						break;
 					}
 				}
-			} catch (SQLException e) {
-
-				e.printStackTrace();
-			}
 
 			return "ligneCommande";
 
