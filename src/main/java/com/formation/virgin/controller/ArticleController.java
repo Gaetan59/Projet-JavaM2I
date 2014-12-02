@@ -16,18 +16,18 @@ import com.formation.virgin.model.manager.MagasinManager;
 @Controller
 @RequestMapping("/article")
 public class ArticleController {
-		@RequestMapping(method = RequestMethod.GET)
-		public String printClient(final ModelMap model) {
-			final ApplicationContext ctx = new ClassPathXmlApplicationContext(
-					"spring.xml");
-			
-			final MagasinManager magasinManager = (MagasinManager) ctx
-					.getBean("magasinManagerImpl");
-			
-			final List<Article> list = magasinManager.getArticles();
-			
-			model.addAttribute("articles", list);
-			return null;
-		}
+	@RequestMapping(method = RequestMethod.GET)
+	public String printClient(final ModelMap model) {
+		final ApplicationContext ctx = new ClassPathXmlApplicationContext(
+				"spring.xml");
+
+		final MagasinManager magasinManager = (MagasinManager) ctx
+				.getBean("magasinManagerImpl");
+
+		final List<Article> list = magasinManager.getArticles();
+
+		model.addAttribute("articles", list);
+		return null;
+	}
 
 }
