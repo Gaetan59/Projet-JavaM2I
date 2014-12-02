@@ -2,7 +2,7 @@ package com.formation.virgin.manager.test;
 
 
 
-package com.formation.magasin.model.manager.impl;
+package com.formation.virgin.manager.test;
 
 import java.sql.SQLException;
 
