@@ -1,9 +1,10 @@
 package com.formation.virgin.model.dao.impl;
 
+
 import java.sql.SQLException;
 
 import javax.persistence.EntityManager;
-
+import static org.junit.Assert.fail;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

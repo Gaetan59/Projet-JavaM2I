@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import com.sun.istack.internal.NotNull;
+
 /**
  * The Class Article.
  */
@@ -20,10 +22,8 @@ public class Article {
 	private Integer id;
 
 	/** The nom. */
+	@NotNull
 	private String nom;
-
-	/** The prix. */
-	private Integer prix;
 
 	/**
 	 * Instantiates a new article.
@@ -40,9 +40,8 @@ public class Article {
 	 * @param prix
 	 *            the prix
 	 */
-	public Article(final String nom, final int prix) {
+	public Article(final String nom) {
 		this.nom = nom;
-		this.prix = prix;
 	}
 
 	/**
@@ -84,23 +83,42 @@ public class Article {
 
 	}
 
-	/**
-	 * Gets the prix.
-	 *
-	 * @return the prix
-	 */
-	public Integer getPrix() {
-		return prix;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
+		return result;
 	}
 
-	/**
-	 * Sets the prix.
-	 *
-	 * @param prix
-	 *            the new prix
-	 */
-	public void setPrix(final Integer prix) {
-		this.prix = prix;
-
+	@Override
+	public boolean equals(final Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Article other = (Article) obj;
+		if (id == null) {
+			if (other.id != null) {
+				return false;
+			}
+		} else if (!id.equals(other.id)) {
+			return false;
+		}
+		if (nom == null) {
+			if (other.nom != null) {
+				return false;
+			}
+		} else if (!nom.equals(other.nom)) {
+			return false;
+		}
+		return true;
 	}
+
 }

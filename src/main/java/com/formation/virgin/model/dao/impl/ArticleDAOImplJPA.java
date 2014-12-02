@@ -18,6 +18,7 @@ public class ArticleDAOImplJPA implements ArticleDAO {
 
 	@Override
 	public boolean create(final Article obj) throws SQLException {
+		// Test que l'id n'est pas null
 		if (obj == null) {
 			return false;
 		}
