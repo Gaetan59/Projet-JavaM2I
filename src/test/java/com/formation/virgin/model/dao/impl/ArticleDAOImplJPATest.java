@@ -17,6 +17,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.formation.virgin.model.dao.ArticleDAO;
+import com.formation.virgin.model.entity.Article;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ArticleDAOImplJPATest {
@@ -34,8 +35,13 @@ public class ArticleDAOImplJPATest {
 
 	@Test
 	public void testCreate() throws SQLException {
-		final Boolean b1 = articleDAO.create(null);
-		Assert.assertFalse(b1);
+
+		final Boolean articleNull = articleDAO.create(null);
+		Assert.assertFalse(articleNull);
+
+		final Boolean articleCreate = articleDAO.create(new Article());
+		Assert.assertTrue(articleCreate);
+
 	}
 
 	@Test
@@ -50,6 +56,8 @@ public class ArticleDAOImplJPATest {
 
 	@Test
 	public void testFind() {
+		// Mockito.when(articleDao.create(Matchers.any(Article.class))).thenReturn(
+		// Boolean.TRUE);
 		fail("Not yet implemented");
 	}
 

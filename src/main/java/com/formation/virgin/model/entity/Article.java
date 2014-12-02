@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import com.sun.istack.internal.NotNull;
+
 /**
  * The Class Article.
  */
@@ -20,9 +22,11 @@ public class Article {
 	private Integer id;
 
 	/** The nom. */
+	@NotNull
 	private String nom;
 
 	/** The prix. */
+	@NotNull
 	private Integer prix;
 
 	/**

@@ -1,10 +1,10 @@
 package com.formation.virgin.model.dao.impl;
 
+import static org.junit.Assert.fail;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.formation.virgin.model.entity.Artiste;
 
 public class ArtisteDAOImplJPATest {
 
@@ -15,7 +15,7 @@ public class ArtisteDAOImplJPATest {
 	@Test
 	public void testCreate() {
 
-		Artiste obj1 = new Artiste(1, "Nom 1");
+		// Artiste obj1 = new Artiste(1, "Nom 1");
 		Assert.assertTrue(true);
 	}
 
