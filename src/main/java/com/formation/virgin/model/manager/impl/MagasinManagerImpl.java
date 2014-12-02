@@ -209,7 +209,7 @@ public class MagasinManagerImpl implements MagasinManager {
 	}
 
 	@Override
-	public MagasinManager getBean(final String string) {
+	public List<Article> getArticles() {
 		// TODO Auto-generated method stub
 		return null;
 	}

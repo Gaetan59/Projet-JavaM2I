@@ -1,6 +1,5 @@
 package com.formation.virgin.controller;
 
-
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -33,16 +32,16 @@ public class LigneCommandeController {
 					.getBean("magasinManagerImpl");
 
 			Client client;
-				client = magasinManager.getClient(clientId);
-				final List<Commande> listCommande = client.getCommande();
-				for (final Commande commande : listCommande) {
-					if (commande.getId() == commandeId) {
-						model.addAttribute("lignescommandes",
-								commande.getLignesCommande());
+			client = magasinManager.getClient(clientId);
+			final List<Commande> listCommande = client.getCommande();
+			for (final Commande commande : listCommande) {
+				if (commande.getId() == commandeId) {
+					model.addAttribute("lignescommandes",
+							commande.getLignesCommande());
 
-						break;
-					}
+					break;
 				}
+			}
 
 			return "ligneCommande";
 
