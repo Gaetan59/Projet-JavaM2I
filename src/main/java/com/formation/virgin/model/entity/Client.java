@@ -104,4 +104,9 @@ public class Client {
 		this.listeCommande = listeCommande;
 	}
 
+	public void addCommande(final Commande commande) {
+		// TODO Auto-generated method stub
+
+	}
+
 }
