@@ -2,8 +2,6 @@ package com.formation.virgin.manager.test;
 
 
 
-package com.formation.virgin.manager.test;
-
 import java.sql.SQLException;
 
 import junit.framework.Assert;
