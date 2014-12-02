@@ -70,4 +70,9 @@ public class Commande {
 	public void setLignesCommande(List<LigneCommande> lignesCommande) {
 		this.lignesCommande = lignesCommande;
 	}
+
+	public void addLigneCommande(LigneCommande ligne1) {
+
+
+	}
 }
