@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.formation.virgin.entity.Client;
-import com.formation.virgin.entity.Commande;
-import com.formation.virgin.manager.MagasinManager;
+import com.formation.virgin.model.entity.Client;
+import com.formation.virgin.model.entity.Commande;
+import com.formation.virgin.model.manager.MagasinManager;
+
+
 
 public class LigneCommandeController {
 
