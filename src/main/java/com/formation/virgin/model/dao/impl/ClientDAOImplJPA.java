@@ -1,9 +1,13 @@
 package com.formation.virgin.model.dao.impl;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
 
@@ -50,6 +54,15 @@ public class ClientDAOImplJPA implements ClientDAO {
 			return null;
 		}
 		return em.find(Client.class, id);
+	}
+
+	@Override
+	public List<Client> findAll() {
+		final CriteriaBuilder builder = em.getCriteriaBuilder();
+		final CriteriaQuery<Client> cq = builder.createQuery(Client.class);
+		final Root<Client> root = cq.from(Client.class);
+		cq.select(root);
+		return em.createQuery(cq).getResultList();
 	}
 
 }

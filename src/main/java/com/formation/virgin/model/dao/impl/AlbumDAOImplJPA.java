@@ -1,9 +1,11 @@
 package com.formation.virgin.model.dao.impl;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
@@ -51,4 +53,17 @@ public class AlbumDAOImplJPA implements AlbumDAO {
 		return em.find(Album.class, id);
 	}
 
+	@Override
+	public List<Album> findByTitre(String titre) {
+		if (titre == null) {
+			return null;
+		}
+		titre = "%" + titre + "%";
+		final Query query = em
+				.createQuery("select e from Album as e where upper(e.Album.Titre) LIKE :titreAlbum");
+		query.setParameter("titreAlbum", "%" + titre + "%");
+		final List<Album> listAlbum = query.getResultList();
+		return listAlbum;
+
+	}
 }
