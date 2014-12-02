@@ -1,7 +1,5 @@
 package com.formation.virgin.model.entity;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,20 +19,21 @@ public class Album extends Article {
 	@NotNull
 	private String titre;
 
-	private Date annee;
+	@NotNull
+	private int annee;
 
 	public Album() {
 		super();
 
 	}
 
-	public Album(final String titre, final Date annee) {
+	public Album(final String titre, final int annee) {
 		super();
 		this.titre = titre;
 		this.annee = annee;
 	}
 
-	public Date getAnnee() {
+	public int getAnnee() {
 		return annee;
 	}
 
@@ -47,7 +46,7 @@ public class Album extends Article {
 		return titre;
 	}
 
-	public void setAnnee(final Date annee) {
+	public void setAnnee(final int annee) {
 		this.annee = annee;
 	}
 

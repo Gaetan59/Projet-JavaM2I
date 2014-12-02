@@ -1,7 +1,5 @@
 package com.formation.virgin.model.dao.impl;
 
-import static org.junit.Assert.fail;
-
 import java.sql.SQLException;
 
 import javax.persistence.EntityManager;
@@ -41,24 +39,27 @@ public class ArticleDAOImplJPATest {
 
 		final Boolean articleCreate = articleDAO.create(new Article());
 		Assert.assertTrue(articleCreate);
-
 	}
 
 	@Test
-	public void testDelete() {
-		fail("Not yet implemented");
+	public void testDelete() throws SQLException {
+		final Boolean articleDelete = articleDAO.delete(new Article());
+		Assert.assertTrue(articleDelete);
 	}
 
 	@Test
-	public void testUpdate() {
-		fail("Not yet implemented");
+	public void testUpdate() throws SQLException {
+		final Boolean articleUpdate = articleDAO.update(new Article());
+		Assert.assertTrue(articleUpdate);
 	}
 
 	@Test
-	public void testFind() {
-		// Mockito.when(articleDao.create(Matchers.any(Article.class))).thenReturn(
-		// Boolean.TRUE);
-		fail("Not yet implemented");
+	public void testFind() throws SQLException {
+		final Article article1 = new Article("test");
+		Mockito.when(em.find(Article.class, 1)).thenReturn(article1);
+		final Article articleFind = articleDAO.find(1);
+		Assert.assertNotNull(articleFind);
+		Assert.assertEquals(article1, articleFind);
 	}
 
 }
