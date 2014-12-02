@@ -60,11 +60,11 @@ public class ArtisteDAOImplJPATest {
 
 	@Test
 	public void testFind() throws SQLException {
-		final Artiste obj1 = new Artiste();
+		final Artiste obj1 = new Artiste("nom");
 		Mockito.when(em.find(Artiste.class, 1)).thenReturn(obj1);
 		final Artiste artisteFind = artisteDao.find(1);
 		Assert.assertEquals(obj1, artisteFind);
-		Assert.assertNotNull(obj1);
+		Assert.assertNotNull(artisteFind);
 
 	}
 
