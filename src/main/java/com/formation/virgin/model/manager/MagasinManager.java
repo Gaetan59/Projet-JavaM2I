@@ -25,4 +25,5 @@ public interface MagasinManager {
 	public void updateClient(Client client);
 
 	void removeClient(Integer clientId);
+
 }
