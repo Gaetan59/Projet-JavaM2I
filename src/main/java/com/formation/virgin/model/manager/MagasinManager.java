@@ -26,4 +26,6 @@ public interface MagasinManager {
 
 	void removeClient(Integer clientId);
 
+	public MagasinManager getBean(String string);
+
 }
