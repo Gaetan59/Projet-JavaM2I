@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.sun.istack.internal.NotNull;
+
 @Entity
 public class Album extends Article {
 
@@ -16,7 +18,9 @@ public class Album extends Article {
 	private Integer id;
 
 	@ManyToOne
+	@NotNull
 	private String titre;
+
 	private Date annee;
 
 	public Album() {

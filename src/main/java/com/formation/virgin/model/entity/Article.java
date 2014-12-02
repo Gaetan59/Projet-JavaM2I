@@ -25,10 +25,6 @@ public class Article {
 	@NotNull
 	private String nom;
 
-	/** The prix. */
-	@NotNull
-	private Integer prix;
-
 	/**
 	 * Instantiates a new article.
 	 */
@@ -44,9 +40,8 @@ public class Article {
 	 * @param prix
 	 *            the prix
 	 */
-	public Article(final String nom, final int prix) {
+	public Article(final String nom) {
 		this.nom = nom;
-		this.prix = prix;
 	}
 
 	/**
@@ -88,23 +83,4 @@ public class Article {
 
 	}
 
-	/**
-	 * Gets the prix.
-	 *
-	 * @return the prix
-	 */
-	public Integer getPrix() {
-		return prix;
-	}
-
-	/**
-	 * Sets the prix.
-	 *
-	 * @param prix
-	 *            the new prix
-	 */
-	public void setPrix(final Integer prix) {
-		this.prix = prix;
-
-	}
 }
