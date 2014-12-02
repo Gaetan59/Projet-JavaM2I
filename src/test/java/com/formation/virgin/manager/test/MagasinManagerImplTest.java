@@ -49,7 +49,7 @@ public class MagasinManagerImplTest {
 	/** The ligne commande dao. */
 	@InjectMocks
 	private final LigneCommandeDAO ligneCommandeDao = Mockito
-	.mock(LigneCommandeDAO.class);
+			.mock(LigneCommandeDAO.class);
 
 	/**
 	 * Sets the up.
@@ -108,13 +108,13 @@ public class MagasinManagerImplTest {
 		Mockito.when(clientDao.create(Matchers.any(Client.class))).thenReturn(
 				Boolean.TRUE);
 		Mockito.when(commandeDao.create(Matchers.any(Commande.class)))
-				.thenReturn(Boolean.TRUE);
+		.thenReturn(Boolean.TRUE);
 		Mockito.when(articleDao.create(Matchers.any(Article.class)))
-				.thenReturn(Boolean.TRUE);
+		.thenReturn(Boolean.TRUE);
 		Mockito.when(articleDao.find(1)).thenReturn(article1);
 		Mockito.when(articleDao.find(2)).thenReturn(article2);
 		Mockito.when(ligneCommandeDao.create(Matchers.any(LigneCommande.class)))
-				.thenReturn(Boolean.TRUE);
+		.thenReturn(Boolean.TRUE);
 		final Boolean b1 = magasinManager.addClient(client);
 		Assert.assertTrue(b1);
 

@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.sun.istack.internal.NotNull;
+
 @Entity
 public class LigneCommande {
 
@@ -14,7 +16,7 @@ public class LigneCommande {
 	private Integer id;
 	@ManyToOne
 	private Article article;
-
+	@NotNull
 	private Integer quantite;
 	@ManyToOne
 	private Commande commande;
