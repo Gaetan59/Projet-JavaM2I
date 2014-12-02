@@ -7,4 +7,7 @@ import com.formation.virgin.model.entity.Titre;
 public interface TitreDAO extends DAO<Titre> {
 
 	List<Titre> findByTrack(String Track);
+
+
+
 }

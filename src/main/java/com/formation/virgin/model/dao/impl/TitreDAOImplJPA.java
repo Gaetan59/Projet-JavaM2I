@@ -66,4 +66,5 @@ public class TitreDAOImplJPA implements TitreDAO {
 		return listTitre;
 	}
 
+
 }
