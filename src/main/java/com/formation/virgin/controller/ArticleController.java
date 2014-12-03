@@ -15,6 +15,7 @@ import com.formation.virgin.model.manager.MagasinManager;
 @Controller
 @RequestMapping("/article")
 public class ArticleController {
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String printClient(final ModelMap model) {
 		final ApplicationContext ctx = new ClassPathXmlApplicationContext(
