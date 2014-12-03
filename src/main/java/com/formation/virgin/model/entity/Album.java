@@ -1,10 +1,15 @@
 package com.formation.virgin.model.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.sun.istack.internal.NotNull;
 
@@ -15,12 +20,18 @@ public class Album extends Article {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@ManyToOne
 	@NotNull
 	private String titre;
 
 	@NotNull
 	private int annee;
+
+	@NotNull
+	@ManyToOne
+	private Artiste artiste;
+
+	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, mappedBy = "album")
+	private final List<Titre> listeTitre = new ArrayList<Titre>();
 
 	public Album() {
 		super();
@@ -57,6 +68,14 @@ public class Album extends Article {
 
 	public void setTitre(final String titre) {
 		this.titre = titre;
+	}
+
+	public Artiste getArtiste() {
+		return artiste;
+	}
+
+	public void setArtiste(Artiste artiste) {
+		this.artiste = artiste;
 	}
 
 	@Override
@@ -99,6 +118,10 @@ public class Album extends Article {
 			return false;
 		}
 		return true;
+	}
+
+	public List<Titre> getListeTitre() {
+		return listeTitre;
 	}
 
 }

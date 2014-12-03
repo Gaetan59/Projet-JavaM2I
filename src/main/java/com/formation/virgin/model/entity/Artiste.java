@@ -3,10 +3,12 @@ package com.formation.virgin.model.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import com.sun.istack.internal.NotNull;
 
@@ -18,7 +20,9 @@ public class Artiste {
 	private int id;
 	@NotNull
 	private String nom;
+	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, mappedBy = "artiste")
 	private final List<Album> listeAlbum = new ArrayList<Album>();
+	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, mappedBy = "artiste")
 	private final List<Titre> listeTitre = new ArrayList<Titre>();
 
 	public Artiste(final String nom) {

@@ -2,9 +2,12 @@ package com.formation.virgin.model.manager;
 
 import java.util.List;
 
+import com.formation.virgin.model.entity.Album;
 import com.formation.virgin.model.entity.Article;
+import com.formation.virgin.model.entity.Artiste;
 import com.formation.virgin.model.entity.Client;
 import com.formation.virgin.model.entity.Commande;
+import com.formation.virgin.model.entity.Titre;
 
 public interface MagasinManager {
 
@@ -28,6 +31,12 @@ public interface MagasinManager {
 
 	public List<Article> getArticles();
 
-	// public void addAlbum(Artiste artiste);
+	public Boolean addAlbum(Album album);
+
+	public Boolean addTitre(Titre track);
+
+	public Boolean removeAlbum(Artiste artiste);
+
+	public Boolean removeTitre(Titre track);
 
 }

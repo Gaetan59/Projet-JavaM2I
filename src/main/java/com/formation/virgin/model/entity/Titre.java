@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import com.sun.istack.internal.NotNull;
 
@@ -18,6 +19,10 @@ public class Titre extends Article {
 	private String track;
 	@NotNull
 	private int annee;
+
+	@NotNull
+	@ManyToOne
+	private Artiste artiste;
 
 	public Titre() {
 		super();
@@ -87,7 +92,7 @@ public class Titre extends Article {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		Titre other = (Titre) obj;
+		final Titre other = (Titre) obj;
 		if (annee != other.annee) {
 			return false;
 		}
