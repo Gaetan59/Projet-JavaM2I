@@ -121,7 +121,6 @@ public class Client {
 	}
 
 	public void addCommande(final Commande commande) {
-		// TODO Auto-generated method stub
 
 	}
 

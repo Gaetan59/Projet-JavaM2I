@@ -1,10 +1,9 @@
 package com.formation.virgin.model.dao.impl;
 
-import static org.junit.Assert.fail;
-
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import javax.persistence.EntityManager;
@@ -78,13 +77,19 @@ public class ClientDAOImplJPATest {
 	}
 
 	@Test
-	public void TestUpdate() {
-		fail("Not yet implemented");
+	public void testUpdate() throws SQLException, ParseException {
+		final boolean clientUpdate = clientDao.update(new Client());
+		Assert.assertTrue(clientUpdate);
 	}
 
 	@Test
-	public void TestFind() {
-		fail("Not yet implemented");
+	public void testFind() throws SQLException, ParseException {
+		
+		final Client client = new Client("Dupond", "Jean", new Date(), "12 rue des pommiers, Lille", "jdupond@mail.com");
+		Mockito.when(em.find(Client.class, 1)).thenReturn(client);
+		final Client clientFind = clientDao.find(1);
+		Assert.assertNotNull(clientFind);
+		Assert.assertEquals(client, clientFind);
 	}
 
 }
