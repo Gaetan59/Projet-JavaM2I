@@ -139,7 +139,7 @@ public class MagasinManagerImplTest {
 		Mockito.when(articleDao.find(2)).thenReturn(article2);
 		Mockito.when(ligneCommandeDao.create(Matchers.any(LigneCommande.class)))
 		.thenReturn(Boolean.TRUE);
-		
+
 		final Boolean b1 = magasinManager.addClient(client);
 		Assert.assertTrue(b1);
 
