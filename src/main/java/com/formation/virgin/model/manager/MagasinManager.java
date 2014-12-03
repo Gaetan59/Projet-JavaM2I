@@ -28,4 +28,6 @@ public interface MagasinManager {
 
 	public List<Article> getArticles();
 
+	// public void addAlbum(Artiste artiste);
+
 }

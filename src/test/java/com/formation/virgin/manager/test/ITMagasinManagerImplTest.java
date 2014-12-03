@@ -1,17 +1,15 @@
 package com.formation.virgin.manager.test;
 
-
-
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 import junit.framework.Assert;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.MockitoAnnotations;
-import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -24,7 +22,7 @@ import com.formation.virgin.model.manager.MagasinManager;
 /**
  * The Class MagasinManagerImplTest.
  */
-@RunWith(MockitoJUnitRunner.class)
+
 public class ITMagasinManagerImplTest {
 
 	/** The magasin manager. */
@@ -38,18 +36,11 @@ public class ITMagasinManagerImplTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		MockitoAnnotations.initMocks(this);
-
-		// clientDao = Mockito.mock(ClientDAO.class);
-		// commandeDao = Mockito.mock(CommandeDAO.class);
-		// articleDao = Mockito.mock(ArticleDAO.class);
-		// ligneCommandeDao = Mockito.mock(LigneCommandeDAO.class);
 
 		final ApplicationContext ctx = new ClassPathXmlApplicationContext(
 				"spring_test.xml");
 
 		magasinManager = (MagasinManager) ctx.getBean("magasinManagerImpl");
-
 	}
 
 	/**
@@ -67,14 +58,17 @@ public class ITMagasinManagerImplTest {
 	 *
 	 * @throws SQLException
 	 *             the SQL exception
+	 * @throws ParseException
 	 */
 	@Test
-	public void testAddClient() throws SQLException {
+	public void testAddClient() throws SQLException, ParseException {
 
-		final Client client = new Client(0, "nom", "prenom", null, null, null);
+		final Client client = new Client("nom", "prenom", new SimpleDateFormat(
+				"dd/mm/yyyy", Locale.FRANCE).parse("20/03/1984"), "adresse",
+				"email");
 		final Commande commande = new Commande();
-		final Article article1 = new Article("gerrad", 10);
-		final Article article2 = new Article("titi", 20);
+		final Article article1 = new Article("Article1");
+		final Article article2 = new Article("Article2");
 		magasinManager.addArticle(article1);
 		magasinManager.addArticle(article2);
 		final LigneCommande ligne1 = new LigneCommande(article1, 1);
@@ -91,6 +85,4 @@ public class ITMagasinManagerImplTest {
 		Assert.assertFalse(b2);
 	}
 
-
 }
-
