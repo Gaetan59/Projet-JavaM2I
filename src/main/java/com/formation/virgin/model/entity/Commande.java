@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Commande {
@@ -22,7 +23,8 @@ public class Commande {
 
 	@ManyToOne
 	private Client client;
-
+	
+	@DateTimeFormat
 	private Date date;
 
 	@LazyCollection(LazyCollectionOption.FALSE)
@@ -67,11 +69,11 @@ public class Commande {
 		return lignesCommande;
 	}
 
-	public void setLignesCommande(List<LigneCommande> lignesCommande) {
+	public void setLignesCommande(final List<LigneCommande> lignesCommande) {
 		this.lignesCommande = lignesCommande;
 	}
 
-	public void addLigneCommande(LigneCommande ligne1) {
+	public void addLigneCommande(final LigneCommande ligne1) {
 
 
 	}
