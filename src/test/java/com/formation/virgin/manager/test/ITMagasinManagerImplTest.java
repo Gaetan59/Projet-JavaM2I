@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.formation.virgin.model.entity.Album;
 import com.formation.virgin.model.entity.Article;
 import com.formation.virgin.model.entity.Client;
 import com.formation.virgin.model.entity.Commande;
@@ -67,8 +68,8 @@ public class ITMagasinManagerImplTest {
 				"dd/mm/yyyy", Locale.FRANCE).parse("20/03/1984"), "adresse",
 				"email");
 		final Commande commande = new Commande();
-		final Article article1 = new Article("Article1");
-		final Article article2 = new Article("Article2");
+		final Article article1 = new Album("Article1", 2);
+		final Article article2 = new Album("Article2", 3);
 		magasinManager.addArticle(article1);
 		magasinManager.addArticle(article2);
 		final LigneCommande ligne1 = new LigneCommande(article1, 1);

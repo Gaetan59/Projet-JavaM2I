@@ -26,6 +26,7 @@ import com.formation.virgin.model.dao.CommandeDAO;
 import com.formation.virgin.model.dao.LigneCommandeDAO;
 import com.formation.virgin.model.dao.PrixSupportDAO;
 import com.formation.virgin.model.dao.TitreDAO;
+import com.formation.virgin.model.entity.Album;
 import com.formation.virgin.model.entity.Article;
 import com.formation.virgin.model.entity.Client;
 import com.formation.virgin.model.entity.Commande;
@@ -58,11 +59,11 @@ public class MagasinManagerImplTest {
 
 	@Mock
 	private final LigneCommandeDAO ligneCommandeDao = Mockito
-			.mock(LigneCommandeDAO.class);
+	.mock(LigneCommandeDAO.class);
 
 	@Mock
 	private final PrixSupportDAO prixSupportDao = Mockito
-			.mock(PrixSupportDAO.class);
+	.mock(PrixSupportDAO.class);
 
 	@Mock
 	private final TitreDAO titreDao = Mockito.mock(TitreDAO.class);
@@ -109,13 +110,13 @@ public class MagasinManagerImplTest {
 	@Test
 	public void testAddClient() throws SQLException, ParseException {
 
-		final Client client = new Client("nom", "prenom", new SimpleDateFormat(
-				"dd/mm/yyyy", Locale.FRANCE).parse("20/03/1984"), "adresse",
-				"email");
+		final Client client = new Client("Patsou", "Jay", new SimpleDateFormat(
+				"dd/mm/yyyy", Locale.FRANCE).parse("20/03/1984"),
+				"impasse de la Haute Borne, 59000 Lille", "monmail@mail.fr");
 		final Commande commande = new Commande();
 
-		final Article article1 = new Article("Article1");
-		final Article article2 = new Article("Article2");
+		final Article article1 = new Album("Article1", 2);
+		final Article article2 = new Album("Article2", 3);
 		// final Artiste Radiohead = new Artiste("Radiohead");
 		// final Album TomYork = new Album("Tom York", 1);
 		// magasinManager.addAlbum(Radiohead);
@@ -131,13 +132,14 @@ public class MagasinManagerImplTest {
 		Mockito.when(clientDao.create(Matchers.any(Client.class))).thenReturn(
 				Boolean.TRUE);
 		Mockito.when(commandeDao.create(Matchers.any(Commande.class)))
-				.thenReturn(Boolean.TRUE);
+		.thenReturn(Boolean.TRUE);
 		Mockito.when(articleDao.create(Matchers.any(Article.class)))
-				.thenReturn(Boolean.TRUE);
+		.thenReturn(Boolean.TRUE);
 		Mockito.when(articleDao.find(1)).thenReturn(article1);
 		Mockito.when(articleDao.find(2)).thenReturn(article2);
 		Mockito.when(ligneCommandeDao.create(Matchers.any(LigneCommande.class)))
-				.thenReturn(Boolean.TRUE);
+		.thenReturn(Boolean.TRUE);
+		
 		final Boolean b1 = magasinManager.addClient(client);
 		Assert.assertTrue(b1);
 

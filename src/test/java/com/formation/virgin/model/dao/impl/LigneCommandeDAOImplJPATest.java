@@ -16,7 +16,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.formation.virgin.model.dao.LigneCommandeDAO;
-import com.formation.virgin.model.entity.Article;
+import com.formation.virgin.model.entity.Album;
 import com.formation.virgin.model.entity.LigneCommande;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -67,7 +67,7 @@ public class LigneCommandeDAOImplJPATest {
 
 	@Test
 	public void testFind() throws SQLException {
-		final LigneCommande obj1 = new LigneCommande(new Article(), 13);
+		final LigneCommande obj1 = new LigneCommande(new Album(), 13);
 		Mockito.when(em.find(LigneCommande.class, 1)).thenReturn(obj1);
 		final LigneCommande ligneCommandeFind = ligneCommandeDao.find(1);
 		Assert.assertEquals(obj1, ligneCommandeFind);
