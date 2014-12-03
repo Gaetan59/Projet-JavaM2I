@@ -27,16 +27,25 @@ public interface MagasinManager {
 
 	public void updateClient(Client client);
 
-	void removeClient(Integer clientId);
+	public void removeClient(Integer clientId);
 
 	public List<Article> getArticles();
 
 	public Boolean addAlbum(Album album);
 
-	public Boolean addTitre(Titre track);
+	public Boolean addTitre(Titre titre);
 
-	public Boolean removeAlbum(Artiste artiste);
+	public void removeAlbum(Integer albumId);
 
-	public Boolean removeTitre(Titre track);
+	public void removeTitre(Integer titreId);
+
+	public List<Album> getAlbum();
+
+	public List<Titre> getTitre();
+
+	public void updateAlbum(Album album);
+
+	public void updateTitre(Titre titre);
+
 
 }

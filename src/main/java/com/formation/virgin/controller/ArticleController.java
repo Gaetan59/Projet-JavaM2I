@@ -9,7 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.formation.virgin.model.entity.Article;
+import com.formation.virgin.model.entity.Album;
 import com.formation.virgin.model.manager.MagasinManager;
 
 @Controller
@@ -24,9 +24,9 @@ public class ArticleController {
 		final MagasinManager magasinManager = (MagasinManager) ctx
 				.getBean("magasinManagerImpl");
 
-		final List<Article> list = magasinManager.getArticles();
+		final List<Album> list = magasinManager.getAlbum();
 
-		model.addAttribute("articles", list);
+		model.addAttribute("Album", list);
 		return null;
 	}
 

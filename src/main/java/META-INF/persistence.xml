@@ -1,0 +1,19 @@
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="myPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>com.formation.virgin.model.entity.Article</class>
+		<class>com.formation.virgin.model.entity.Commande</class>
+		<class>com.formation.virgin.model.entity.LigneCommande</class>
+		<class>com.formation.virgin.model.entity.Client</class>
+		<class>com.formation.virgin.model.entity.Album</class>
+		<class>com.formation.virgin.model.entity.Artiste</class>
+		<class>com.formation.virgin.model.entity.Titre</class>
+		<class>com.formation.virgin.model.entity.PrixSupport</class>
+		<properties>
+		    <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+		    <property name="hibernate.showSql" value="true" />
+<!-- 		    <property name="hibernate.hbm2ddl.auto" value="create" /> -->
+		    <property name="hibernate.connection.autocommit" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
