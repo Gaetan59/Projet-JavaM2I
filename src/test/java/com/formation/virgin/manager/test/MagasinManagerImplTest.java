@@ -59,11 +59,11 @@ public class MagasinManagerImplTest {
 
 	@Mock
 	private final LigneCommandeDAO ligneCommandeDao = Mockito
-	.mock(LigneCommandeDAO.class);
+			.mock(LigneCommandeDAO.class);
 
 	@Mock
 	private final PrixSupportDAO prixSupportDao = Mockito
-	.mock(PrixSupportDAO.class);
+			.mock(PrixSupportDAO.class);
 
 	@Mock
 	private final TitreDAO titreDao = Mockito.mock(TitreDAO.class);
@@ -115,11 +115,9 @@ public class MagasinManagerImplTest {
 				"impasse de la Haute Borne, 59000 Lille", "monmail@mail.fr");
 		final Commande commande = new Commande();
 
-		final Article article1 = new Album("Article1", 2);
-		final Article article2 = new Album("Article2", 3);
-		// final Artiste Radiohead = new Artiste("Radiohead");
-		// final Album TomYork = new Album("Tom York", 1);
-		// magasinManager.addAlbum(Radiohead);
+		final Article article1 = new Album("OK Computer", 2);
+		final Article article2 = new Album("In Rainbow", 3);
+
 		magasinManager.addArticle(article1);
 
 		final LigneCommande ligne1 = new LigneCommande(article1, 1);
@@ -132,13 +130,13 @@ public class MagasinManagerImplTest {
 		Mockito.when(clientDao.create(Matchers.any(Client.class))).thenReturn(
 				Boolean.TRUE);
 		Mockito.when(commandeDao.create(Matchers.any(Commande.class)))
-		.thenReturn(Boolean.TRUE);
+				.thenReturn(Boolean.TRUE);
 		Mockito.when(articleDao.create(Matchers.any(Article.class)))
-		.thenReturn(Boolean.TRUE);
+				.thenReturn(Boolean.TRUE);
 		Mockito.when(articleDao.find(1)).thenReturn(article1);
 		Mockito.when(articleDao.find(2)).thenReturn(article2);
 		Mockito.when(ligneCommandeDao.create(Matchers.any(LigneCommande.class)))
-		.thenReturn(Boolean.TRUE);
+				.thenReturn(Boolean.TRUE);
 
 		final Boolean b1 = magasinManager.addClient(client);
 		Assert.assertTrue(b1);

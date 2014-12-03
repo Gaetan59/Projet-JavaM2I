@@ -64,12 +64,13 @@ public class ITMagasinManagerImplTest {
 	@Test
 	public void testAddClient() throws SQLException, ParseException {
 
-		final Client client = new Client("nom", "prenom", new SimpleDateFormat(
-				"dd/mm/yyyy", Locale.FRANCE).parse("20/03/1984"), "adresse",
-				"email");
+		final Client client = new Client("Patsou", "Jay", new SimpleDateFormat(
+				"dd/mm/yyyy", Locale.FRANCE).parse("20/03/1984"),
+				"impasse de la Haute Borne, 59000 Lille", "monmail@mail.fr");
+
 		final Commande commande = new Commande();
-		final Article article1 = new Album("Article1", 2);
-		final Article article2 = new Album("Article2", 3);
+		final Article article1 = new Album("OK Computer", 2);
+		final Article article2 = new Album("In Rainbow", 3);
 		magasinManager.addArticle(article1);
 		magasinManager.addArticle(article2);
 		final LigneCommande ligne1 = new LigneCommande(article1, 1);
