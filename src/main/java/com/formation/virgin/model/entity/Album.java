@@ -62,6 +62,10 @@ public class Album extends Article {
 		this.artiste = artiste;
 	}
 
+	public List<Titre> getListeTitre() {
+		return listeTitre;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -94,10 +98,6 @@ public class Album extends Article {
 			return false;
 		}
 		return true;
-	}
-
-	public List<Titre> getListeTitre() {
-		return listeTitre;
 	}
 
 }

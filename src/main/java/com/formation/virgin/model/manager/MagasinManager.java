@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.formation.virgin.model.entity.Album;
 import com.formation.virgin.model.entity.Article;
-import com.formation.virgin.model.entity.Artiste;
 import com.formation.virgin.model.entity.Client;
 import com.formation.virgin.model.entity.Commande;
 import com.formation.virgin.model.entity.Titre;
@@ -46,6 +45,9 @@ public interface MagasinManager {
 	public void updateAlbum(Album album);
 
 	public void updateTitre(Titre titre);
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/Gaetan59/Projet-JavaM2I.git
 
 }
