@@ -2,9 +2,7 @@ package com.formation.virgin.model.dao.impl;
 
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 import javax.persistence.EntityManager;
 
@@ -44,36 +42,18 @@ public class ClientDAOImplJPATest {
 	@Test
 	public void TestCreate() throws SQLException, ParseException {
 		
-		final Client clientCreate = new Client();
-		clientCreate.setNom("Dupond");
-		clientCreate.setPrenom("Jean");
-		clientCreate.setNaissance(new SimpleDateFormat("dd/mm/yyyy", Locale.FRANCE).parse("20/02/1980"));
-		clientCreate.setAdresse("20, rue des pommiers, Lille");
-		clientCreate.setEmail("jdupond@gmail.com");
-		
-		final Boolean b1 = clientDao.create(clientCreate);
-		Assert.assertTrue(b1);
-		
-		final Boolean b2 = clientDao.create(null);
-		Assert.assertTrue(b2);
-		
+		final Boolean clientNull = clientDao.create(null);
+		Assert.assertFalse(clientNull);
+
+		final Boolean clientCreate = clientDao.create(new Client());
+		Assert.assertTrue(clientCreate);
 	}
 
 	@Test
 	public void TestDelete() throws SQLException, ParseException {
 		
-		final Client clientDelete = new Client();
-		clientDelete.setNom("Durand");
-		clientDelete.setPrenom("Paul");
-		clientDelete.setNaissance(new SimpleDateFormat("dd/mm/yyyy", Locale.FRANCE).parse("20/02/1980"));
-		clientDelete.setAdresse("20, rue des poiriers, Lille");
-		clientDelete.setEmail("pdurand@gmail.com");
-		
-		final boolean b3 = clientDao.delete(clientDelete);
-		Assert.assertTrue(b3);
-		
-		final boolean b4 = clientDao.delete(null);
-		Assert.assertFalse(b4);
+		final boolean clientDelete = clientDao.delete(new Client());
+		Assert.assertTrue(clientDelete);
 	}
 
 	@Test
