@@ -15,6 +15,7 @@ import com.formation.virgin.model.dao.LigneCommandeDAO;
 import com.formation.virgin.model.dao.TitreDAO;
 import com.formation.virgin.model.entity.Album;
 import com.formation.virgin.model.entity.Article;
+import com.formation.virgin.model.entity.Artiste;
 import com.formation.virgin.model.entity.Client;
 import com.formation.virgin.model.entity.Commande;
 import com.formation.virgin.model.entity.LigneCommande;
@@ -274,6 +275,7 @@ public class MagasinManagerImpl implements MagasinManager {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<Titre> getTitre() {
 		// TODO Auto-generated method stub
 		return null;
@@ -305,6 +307,29 @@ public class MagasinManagerImpl implements MagasinManager {
 	public List<Article> getArticles() {
 		return null;
 
+=======
+	public Boolean addAlbum(Album album) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean addTitre(Titre track) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean removeAlbum(Artiste artiste) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean removeTitre(Titre track) {
+		// TODO Auto-generated method stub
+		return null;
+>>>>>>> branch 'master' of https://github.com/Gaetan59/Projet-JavaM2I.git
 	}
 
 }

@@ -14,11 +14,11 @@ import com.sun.istack.internal.NotNull;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Article {
+public class Article {
 
 	/** The id. */
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Integer id;
 
 	/** The nom. */
