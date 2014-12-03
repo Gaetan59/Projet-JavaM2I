@@ -109,9 +109,9 @@ public class MagasinManagerImplTest {
 	@Test
 	public void testAddClient() throws SQLException, ParseException {
 
-		final Client client = new Client("nom", "prenom", new SimpleDateFormat(
-				"dd/mm/yyyy", Locale.FRANCE).parse("20/03/1984"), "adresse",
-				"email");
+		final Client client = new Client("Patsou", "Jay", new SimpleDateFormat(
+				"dd/mm/yyyy", Locale.FRANCE).parse("20/03/1984"),
+				"impasse de la Haute Borne, 59000 Lille", "monmail@mail.fr");
 		final Commande commande = new Commande();
 
 		final Article article1 = new Article("Article1");
@@ -138,6 +138,7 @@ public class MagasinManagerImplTest {
 		Mockito.when(articleDao.find(2)).thenReturn(article2);
 		Mockito.when(ligneCommandeDao.create(Matchers.any(LigneCommande.class)))
 				.thenReturn(Boolean.TRUE);
+
 		final Boolean b1 = magasinManager.addClient(client);
 		Assert.assertTrue(b1);
 
