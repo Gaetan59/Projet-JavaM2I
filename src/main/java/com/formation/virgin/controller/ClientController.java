@@ -3,8 +3,7 @@ package com.formation.virgin.controller;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,19 +18,12 @@ import com.formation.virgin.model.manager.MagasinManager;
 @RequestMapping("/client")
 public class ClientController {
 
+	@Autowired
 	private MagasinManager magasinManager;
-	private ApplicationContext ctx;
 
-	public void init() {
-
-		ctx = new ClassPathXmlApplicationContext("spring.xml");
-
-		magasinManager = (MagasinManager) ctx.getBean("magasinManagerImpl");
-	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String printClient(final ModelMap model) {
-		init();
 		final List<Client> list = magasinManager.getClients();
 		model.addAttribute("clients", list);
 		return "client";
@@ -48,7 +40,6 @@ public class ClientController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String handleForm(@ModelAttribute("client") final Client client,
 			final ModelMap model) {
-		init();
 
 		if (client != null && client.getNom() != null
 				&& !client.getNom().isEmpty() && client.getPrenom() != null
@@ -64,7 +55,6 @@ public class ClientController {
 	@RequestMapping(value = "/modif/{clientId}", method = RequestMethod.GET)
 	public String editClient(@PathVariable("clientId") final Integer clientId,
 			final ModelMap model) throws SQLException {
-		init();
 		final Client client = magasinManager.getClient(clientId);
 		model.addAttribute("client", client);
 		return "modif";
@@ -75,7 +65,6 @@ public class ClientController {
 			@ModelAttribute("client") final Client client,
 			@PathVariable("clientId") final Integer clientId,
 			final ModelMap model) {
-		init();
 
 		if (client != null && client.getNom() != null
 				&& !client.getNom().isEmpty() && client.getPrenom() != null
@@ -93,7 +82,6 @@ public class ClientController {
 	public String SuppClientReponse(
 			@PathVariable("clientId") final Integer clientId,
 			final ModelMap model) throws SQLException {
-		init();
 		final Client client = magasinManager.getClient(clientId);
 
 		if (client != null && client.getNom() != null

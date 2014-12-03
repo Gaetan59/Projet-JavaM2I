@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Commerce</title>
+	<title>Liste des musiques</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/ressources/css/bootstrap/bootstrap.css" media="screen" />
 	<style type="text/css">
   body {

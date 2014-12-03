@@ -1,9 +1,6 @@
 package com.formation.virgin.model.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.sun.istack.internal.NotNull;
@@ -11,9 +8,6 @@ import com.sun.istack.internal.NotNull;
 @Entity
 public class Titre extends Article {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
 
 	@NotNull
 	private String track;
@@ -23,6 +17,9 @@ public class Titre extends Article {
 	@NotNull
 	@ManyToOne
 	private Artiste artiste;
+
+	@ManyToOne
+	private Album album;
 
 	public Titre() {
 		super();
@@ -51,29 +48,36 @@ public class Titre extends Article {
 		this.track = track;
 	}
 
-	@Override
-	public Integer getId() {
-		return id;
-	}
 
-	@Override
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#hashCode()
+	/**
+	 * @return the artiste
 	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + annee;
-		result = prime * result + (id == null ? 0 : id.hashCode());
-		result = prime * result + (track == null ? 0 : track.hashCode());
-		return result;
+	public Artiste getArtiste() {
+		return artiste;
+	}
+
+	/**
+	 * @param artiste
+	 *            the artiste to set
+	 */
+	public void setArtiste(Artiste artiste) {
+		this.artiste = artiste;
+	}
+
+	/**
+	 * @return the album
+	 */
+	public Album getAlbum() {
+		return album;
+	}
+
+	/**
+	 * @param album
+	 *            the album to set
+	 */
+	public void setAlbum(Album album) {
+		this.album = album;
 	}
 
 	/*
@@ -94,13 +98,6 @@ public class Titre extends Article {
 		}
 		final Titre other = (Titre) obj;
 		if (annee != other.annee) {
-			return false;
-		}
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else if (!id.equals(other.id)) {
 			return false;
 		}
 		if (track == null) {

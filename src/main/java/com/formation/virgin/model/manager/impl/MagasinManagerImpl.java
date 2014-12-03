@@ -11,10 +11,13 @@ import com.formation.virgin.model.dao.ArticleDAO;
 import com.formation.virgin.model.dao.ClientDAO;
 import com.formation.virgin.model.dao.CommandeDAO;
 import com.formation.virgin.model.dao.LigneCommandeDAO;
+import com.formation.virgin.model.entity.Album;
 import com.formation.virgin.model.entity.Article;
+import com.formation.virgin.model.entity.Artiste;
 import com.formation.virgin.model.entity.Client;
 import com.formation.virgin.model.entity.Commande;
 import com.formation.virgin.model.entity.LigneCommande;
+import com.formation.virgin.model.entity.Titre;
 import com.formation.virgin.model.manager.MagasinManager;
 
 @Service
@@ -90,10 +93,10 @@ public class MagasinManagerImpl implements MagasinManager {
 			}
 			commandeDao.delete(commande);
 		} catch (final SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return Boolean.FALSE;
 		}
-		return null;
+		return Boolean.TRUE;
 	}
 
 	/*
@@ -148,8 +151,8 @@ public class MagasinManagerImpl implements MagasinManager {
 		try {
 			articleDao.create(article);
 		} catch (final SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
 		}
 		return true;
 	}
@@ -210,6 +213,30 @@ public class MagasinManagerImpl implements MagasinManager {
 
 	@Override
 	public List<Article> getArticles() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean addAlbum(Album album) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean addTitre(Titre track) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean removeAlbum(Artiste artiste) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean removeTitre(Titre track) {
 		// TODO Auto-generated method stub
 		return null;
 	}

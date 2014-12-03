@@ -9,6 +9,8 @@
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+	<context:component-scan base-package="com.formation.virgin.model.dao.impl" />
+	<context:component-scan base-package="com.formation.virgin.model.manager.impl" />
 	<context:component-scan base-package="com.formation.virgin.controller" />
 
 	<bean
@@ -20,5 +22,23 @@
 	<mvc:resources mapping="/ressources/**" location="/ressources/" />
 
 	<mvc:annotation-driven />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/virgin" />
+		<property name="username" value="root" />
+		<property name="password" value="m2iformation" />
+	</bean>
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="myPersistenceUnit" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
 
 </beans>

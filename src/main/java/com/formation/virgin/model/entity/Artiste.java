@@ -18,12 +18,15 @@ public class Artiste {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
 	@NotNull
 	private String nom;
+
 	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, mappedBy = "artiste")
-	private final List<Album> listeAlbum = new ArrayList<Album>();
+	private List<Album> listeAlbum = new ArrayList<Album>();
+
 	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, mappedBy = "artiste")
-	private final List<Titre> listeTitre = new ArrayList<Titre>();
+	private List<Titre> listeTitre = new ArrayList<Titre>();
 
 	public Artiste(final String nom) {
 		super();
@@ -64,10 +67,10 @@ public class Artiste {
 		int result = 1;
 		result = prime * result + id;
 		result = prime * result
-				+ ((listeAlbum == null) ? 0 : listeAlbum.hashCode());
+				+ (listeAlbum == null ? 0 : listeAlbum.hashCode());
 		result = prime * result
-				+ ((listeTitre == null) ? 0 : listeTitre.hashCode());
-		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
+				+ (listeTitre == null ? 0 : listeTitre.hashCode());
+		result = prime * result + (nom == null ? 0 : nom.hashCode());
 		return result;
 	}
 
