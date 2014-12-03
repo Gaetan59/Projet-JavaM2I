@@ -13,32 +13,6 @@
 	
 
 	<!-- <context:annotation-config/> -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close">
-			<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-			<property name="url" value="jdbc:mysql://localhost:3306/Projet-JavaM2i" />
-			<property name="username" value="root" />
-			<property name="password" value="m2iformation" />
-	</bean>
 
-	<bean id="entityManagerFactory"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="persistenceUnitName" value="myPersistenceUnit" />
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
-	</bean>
-
-	<context:component-scan base-package="com.formation.magasin.model.dao.impl.jpa" /> <!-- Indiquer packages que Spring doit scanner pour les service de l'appli, etre le + precis possible pour éviter de scanner des packages inutiles -->
-	<context:component-scan base-package="com.formation.magasin.model.manager.impl" />
-	<context:component-scan base-package="com.formation.magasin.servlet" />
-
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
 
 </beans>

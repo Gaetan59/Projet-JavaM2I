@@ -7,14 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.formation.virgin.model.dao.AlbumDAO;
 import com.formation.virgin.model.dao.ArticleDAO;
 import com.formation.virgin.model.dao.ClientDAO;
 import com.formation.virgin.model.dao.CommandeDAO;
 import com.formation.virgin.model.dao.LigneCommandeDAO;
+import com.formation.virgin.model.dao.TitreDAO;
+import com.formation.virgin.model.entity.Album;
 import com.formation.virgin.model.entity.Article;
 import com.formation.virgin.model.entity.Client;
 import com.formation.virgin.model.entity.Commande;
 import com.formation.virgin.model.entity.LigneCommande;
+import com.formation.virgin.model.entity.Titre;
 import com.formation.virgin.model.manager.MagasinManager;
 
 @Service
@@ -35,6 +39,12 @@ public class MagasinManagerImpl implements MagasinManager {
 	@Autowired
 	/** The ligne commande dao. */
 	private LigneCommandeDAO ligneCommandeDao;
+
+	@Autowired
+	private AlbumDAO albumDao;
+
+	@Autowired
+	private TitreDAO titreDao;
 
 	/**
 	 * Instantiates a new magasin manager impl.
@@ -90,10 +100,10 @@ public class MagasinManagerImpl implements MagasinManager {
 			}
 			commandeDao.delete(commande);
 		} catch (final SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return Boolean.FALSE;
 		}
-		return null;
+		return Boolean.TRUE;
 	}
 
 	/*
@@ -148,8 +158,8 @@ public class MagasinManagerImpl implements MagasinManager {
 		try {
 			articleDao.create(article);
 		} catch (final SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
 		}
 		return true;
 	}
@@ -209,9 +219,92 @@ public class MagasinManagerImpl implements MagasinManager {
 	}
 
 	@Override
-	public List<Article> getArticles() {
+	public Boolean addAlbum(Album album) {
+		try {
+			albumDao.create(album);
+		} catch (final SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return true;
+	}
+
+	@Override
+	public Boolean addTitre(Titre titre) {
+		try {
+			titreDao.create(titre);
+		} catch (final SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return true;
+	}
+
+	@Override
+	@Transactional(readOnly = false)
+	public void removeAlbum(final Integer albumId) {
+		try {
+			final Album album = albumDao.find(albumId);
+			if (album == null) {
+				throw new IllegalArgumentException();
+			}
+			albumDao.delete(album);
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void removeTitre(Integer titreId) {
+		try {
+			final Titre titre = titreDao.find(titreId);
+			if (titre == null) {
+				throw new IllegalArgumentException();
+			}
+			titreDao.delete(titre);
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public List<Album> getAlbum() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Titre> getTitre() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@Transactional(readOnly = false)
+	public void updateAlbum(Album album) {
+		try {
+			albumDao.update(album);
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	@Transactional(readOnly = false)
+	public void updateTitre(Titre titre) {
+		try {
+			titreDao.update(titre);
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public List<Article> getArticles() {
+		return null;
+
 	}
 
 }

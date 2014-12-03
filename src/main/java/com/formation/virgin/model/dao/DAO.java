@@ -40,12 +40,11 @@ public interface DAO<T> {
 	/**
 	 * Méthode de recherche des informations.
 	 *
-	 * @param id
+	 * @param album
 	 *            the id
 	 * @return T
 	 * @throws SQLException
 	 *             the SQL exception
 	 */
-	public abstract T find(Integer id) throws SQLException;
 
 }
